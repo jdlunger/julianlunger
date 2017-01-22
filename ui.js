@@ -1,6 +1,6 @@
 viewportWidth = 1000;
 viewportHeight = 500;
-let debug = true;
+let debug = false;
 
 const kWaveX = 500;
 const kWaveY = 420;  // BLAZE IT
@@ -106,10 +106,13 @@ const oceanToUse = 'ocean'; // 'ocean' or 'old_ocean';
 
 var imagemap = {
   'shark': [loadImage('jraphics/shark.png')],
-  'sailboat': [loadImage('jraphics/4x_galleon_0.png')],
-  'wave': [loadImage('jraphics/4x_l0_wave_1.png')],
+  'wave': [loadImage('jraphics/4x_l0_wave_1.png'),
+           loadImage('jraphics/4x_l0_wave_2.png'),
+           loadImage('jraphics/4x_l0_wave_3.png')],
+  'wave_face': [loadImage('jraphics/4x_l1_wave_4.png')],
+  'sailboat': [loadImage('jraphics/4x_sailboat_0.png')],
   'ship': [loadImage('jraphics/4x_galleon_0.png')],
-  'destroyer': [loadImage('jraphics/4x_galleon_0.png')],
+  'destroyer': [loadImage('jraphics/4x_destroyer_0.png')],
   'player': [loadImage('jraphics/4x_l0_wave_1.png'),
              loadImage('jraphics/4x_l0_wave_2.png'),
              loadImage('jraphics/4x_l0_wave_3.png')],
@@ -202,6 +205,10 @@ function renderObstacle(ctx, obstacle, deltaX, deltaY, scale) {
 
   ctx.globalAlpha = 1 - obstacle.explodedTime / maxExplodedTime;
   renderSprite(ctx, image, xPos, yPos, sizeX, sizeY);
+  if (imagemap[obstacle.type + '_face'] != undefined) {
+    renderSprite(ctx, imagemap[obstacle.type + '_face'],
+                 xPos, yPos, sizeX, sizeY);
+  }
 }
 
 // rot in degrees.
