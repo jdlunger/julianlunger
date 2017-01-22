@@ -1,5 +1,27 @@
 <html>
-  <body>
-    <p>Hello.</p>
-  </body>
+<head>
+<title>ocean.wav</title>
+</head>
+
+<script src="globals.js"></script>
+<script src="ui.js"></script>
+<script src="game.js"></script>
+
+<h1>oh hello, i didnt sea you there</h1>
+<canvas id="c" width="1000" height="500"></canvas>
+<h1>Score: <span id="score">0</span></h1>
+
+<img src="wave_scaled.png" id="me" style="display:none">
+<img src="wave.jpg" id="wave" style="display:none">
+<img src="ship.jpg" id="ship" style="display:none">
+<img src="sailboat.jpg" id="sailboat" style="display:none">
+<img src="shark.jpg" id="shark" style="display:none">
+<img src="compass.png" id="compass" style="display:none">
+<img src="ocean.jpg" id="ocean" style="display:none">
+
+<script>
+  window.onload = startGame;
+</script>
+
+
 </html>
